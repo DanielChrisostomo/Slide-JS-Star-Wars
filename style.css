@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  background: #000;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  border-radius: 16px;
+}
+
+#slide {
+  max-width: 400px;
+  margin: 2.25rem auto;
+  position: relative;
+}
+
+#slide-items {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+#slide-items > * {
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#slide-items > *.active {
+  position: relative;
+  opacity: 1;
+  animation: slideAnime 1s ease-out;
+}
+
+ #slide-items > *.active-next {
+  position: relative;
+  animation: slideNext 800ms forwards;
+} 
+
+ #slide-items > *.active-prev {
+  position: relative;
+  animation: slidePrev 800ms forwards;
+}
+
+#slide-buttons{
+  display: flex;
+  justify-content: space-between;
+}
+
+ @keyframes slideAnime {
+  from {
+    opacity: 0;
+    transform: scale(0.1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideNext {
+  from {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes slidePrev {
+   from {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+} 
+
+button {
+  background-color: #222;
+  border: medium;
+  outline: none;
+  padding: 10px 30px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: white;
+  border-radius: 5px;
+  box-shadow: #ddd 0px 5px 0px -0.75px;
+  transition: all 300ms ease 0s;
+  cursor: pointer;
+}
+
+button:active {
+    transform: translateY(5px);
+    box-shadow: 0px 0px 0px 0px rgba(255, 0, 0, .8);
+    color: rgba(255, 0, 0, .8);
+} 
+
+p {
+  font-size: 1.125rem;
+}
+
+#star {
+  color: white;
+  width: 1ch;
+  position: absolute;
+  z-index: 10;
+  left: -15px;
+}
+
+#wars {
+  color: white;
+  width: 1ch;
+  position: absolute;
+  z-index: 10;
+  bottom: 66px;
+  right: -15px;
+}
+
+
+
+@media (max-width: 600px) {
+  body {
+    overflow: hidden;
+  }
+  #slide {
+    max-width: 300px;
+    margin: 8.5rem auto;
+    height: 100%;
+  }
+}
